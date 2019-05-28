@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Context Menu //
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -93,5 +95,32 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+
+    // Option Menu //
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.option_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.englishSelection) {
+            tvDBS.setText(R.string.dbs_el);
+            tvOCBC.setText(R.string.ocbc_el);
+            tvUOB.setText(R.string.uob_el);
+        }else  {
+            tvDBS.setText(R.string.dbs_cl);
+            tvOCBC.setText(R.string.ocbc_cl);
+            tvUOB.setText(R.string.uob_cl);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }
