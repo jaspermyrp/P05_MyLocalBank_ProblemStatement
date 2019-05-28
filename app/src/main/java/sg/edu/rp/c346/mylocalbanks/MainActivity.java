@@ -64,6 +64,29 @@ public class MainActivity extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
+    // Option Menu //
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.option_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.englishSelection) {
+            setElLang();
+        }else  {
+            setClLang();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    // Other methods //
     public void webSelection(String type) {
         String url = "";
 
@@ -96,31 +119,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Option Menu //
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.option_main, menu);
-        return true;
+    public void setElLang(){
+        tvDBS.setText(R.string.dbs_el);
+        tvOCBC.setText(R.string.ocbc_el);
+        tvUOB.setText(R.string.uob_el);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.englishSelection) {
-            tvDBS.setText(R.string.dbs_el);
-            tvOCBC.setText(R.string.ocbc_el);
-            tvUOB.setText(R.string.uob_el);
-        }else  {
-            tvDBS.setText(R.string.dbs_cl);
-            tvOCBC.setText(R.string.ocbc_cl);
-            tvUOB.setText(R.string.uob_cl);
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void setClLang(){
+        tvDBS.setText(R.string.dbs_cl);
+        tvOCBC.setText(R.string.ocbc_cl);
+        tvUOB.setText(R.string.uob_cl);
     }
+
+
 
 
 }
